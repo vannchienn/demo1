@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>factory</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Factory - Service demo</h2>
+        <hr>
+        <div ng-app="myApp" ng-controller="myControl">
+            Input a positive number :
+            <br>
+            <input type="number" name="txtN" min="1" max="40" ng-model="number">
+            <button ng-click="calc()">Factorial</button>
+            <p>Result : {{result}}</p>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module("myApp",[]);
+        app.factory("mathFactory", function(){
+            var f = {};
+            f.fnFac = function(n){
+                var kq = 1;
+                for (var i = 2; i <= n; i++){
+                    kq *= i;
+                }
+                return kq;
+            }
+            return f;
+        });
+
+        app.service("CasioService", function(mathFactory){
+            this.factorial = function(n){
+                return mathFactory.fnFac(n);
+            }
+        });
+
+        app.controller("myControl", function($scope, CasioService){
+            $scope.number = 5;
+            $scope.calc = function () { 
+                $scope.result = CasioService.factorial($scope.number);
+            }
+        });
+    </script>
+</body>
+</html>

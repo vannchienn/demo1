@@ -1,0 +1,8 @@
+{
+    "data_lists":[
+        {"id":"P01","name":"Social Network","type":"GOV","active":"true"},
+        {"id":"P02","name":"React Native + NodeJS","type":"EDU","active":"true"},
+        {"id":"P03","name":"Google Map API","type":"DEP","active":"false"},
+        {"id":"P04","name":"nCovid Vaccine","type":"GOV","active":"true"}
+    ]
+}

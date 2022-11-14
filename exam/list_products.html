@@ -1,0 +1,27 @@
+<div ng-controller="myList">
+    <div>
+      <label for="" style="width: 300px; text-align: center;">List_Product.html </label> <input type="text" placeholder="enter your search" name="search" ng-model="search"></p>
+    
+    </div>
+    <h2>Best-Selling Products</h2>
+    <table class="table table-hover table-striped">
+        <thead>
+            <tr>
+                <th> <input type="radio" name="sort"  ng-model="sort" value="id" >Id</th>
+                <th><input type="radio" name="sort" ng-model="sort" value="name" > Product Name</th>
+                <th> <input type="radio" name="sort"  ng-model="sort" value="category" >Category</th>
+                <th><input type="radio" name="sort"  ng-model="sort" value="price" >Price</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="p in products | filter:search |orderBy:sort" >
+                <td>{{p.id}}</td>
+                <td>{{p.name}}</td>       
+                <td>{{p.category}}</td>    
+                <td>{{p.price}}</td>
+                <td> <button type="button" class="btn btn-success" ng-click="remove(p.id)" > Delete </button></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

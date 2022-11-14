@@ -1,0 +1,49 @@
+<style>
+    .error {
+        color: red;
+    }
+
+    input.ng-invalid {
+        border: red thin solid;
+    }
+
+    input.ng-valid {
+        border: green thin solid;
+    }
+</style>
+
+<div ng-controller="myAdd" style="border: solid thin #ccc;border-radius: 5px;margin: auto;" class="col-md-4">
+    <div>
+        <h2 style="font-weight: bolder;text-align: center;">Add New Product</h2>
+        <hr>
+    
+        <form name="formProduct" ng-submit="addProduct()" >
+    
+            <div class="form-group ">
+                <label>ID</label>
+                <input type="number" class="form-control" id="id" name="id"  ng-model="id" placeholder="enter id product" required>
+                <span class="error" ng-show="formProduct.id.$error.required">ID is Required.</span><br>
+            </div>
+    
+            <div class="form-group ">
+                <label>Product Name</label>
+                <input type="text" class="form-control" id="name" name="name" ng-model="name" placeholder="enter product name" required>
+                <span class="error" ng-show="formProduct.name.$error.required">Product Name is Required.</span>
+            </div>
+    
+            <div class="form-group ">
+                <label>Category</label>
+                <input type="text" class="form-control" id="category" name="category" ng-model="category" placeholder="enter category" required>
+                <span class="error" ng-show="formProduct.category.$error.required">Type is Required. </span>
+            </div>
+            <div class="form-group ">
+                <label>Price</label>
+                <input type="number" class="form-control" id="price" name="price" ng-model="price" placeholder="enter price of product" required min="0">
+                <span class="error" ng-show="formProduct.price.$error.required">Price is Required. </span>
+            </div>
+            <button style="margin-left: 18px;" type="submit" class="btn btn-success" ng-disabled="formProduct.$invalid" >Save</button>
+    
+        </form>
+
+    </div>
+</div>

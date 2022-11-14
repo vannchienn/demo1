@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form validate</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+    <style>
+        input.ng-pristine{
+            background-color: yellow;
+        }
+
+        input.ng-touched.ng-invalid{
+            background-color: red;
+        }
+
+        input.ng-touched.ng-valid{
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2>form validate demo</h2>
+    <hr>
+    <div ng-app>
+        <form action="" name="frLog" novalidate>
+            <input type="text" name="txtName" ng-model="txtName" placeholder="enter your first name" required><br><br>
+            <input type="text" name="txtLName" ng-model="txtLName" placeholder="enter your last name" required><br><br>
+            <input type="email" name="txtMail" ng-model="txtMail" placeholder="enter your mail" required><br><br>
+            <input type="submit" name="Submit" id="" >
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,9 @@
+{
+    "data_products":[
+        {"id":1,"name":"Omare ssd consequat","category":"Dresses","price":700},
+        {"id":2,"name":"Peilenseque pssuaere","category":"Dresses","price":200},
+        {"id":3,"name":"Consequat posiere","category":"Dresses","price":300},
+        {"id":4,"name":"varieable product 001","category":"Accessties","price":220},
+        {"id":5,"name":"varieable product 002","category":"Accessties","price":540}
+    ]
+}

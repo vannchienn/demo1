@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Provider</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2>Provider demo</h2>
+        <hr>
+        <div ng-app="myApp" ng-controller="myControl">
+            <button ng-click="GreetingObj()">Greeting</button>
+            <div ng-bind="var1"></div>
+        </div>
+    </div>
+
+    <script>
+        var app = angular.module("myApp",[]);
+        app.provider("myPro",function(){
+            this.$get = function(){
+                return{
+                    Greeting: function () { 
+                        var s = "";
+                        var d = new Date();
+                        s += ("It's " + d.toLocaleTimeString() + ". ");
+                        var hh = d.getHours();
+                        if(hh <12){ s += "Good Morning !!"; }
+                        else if(hh < 18){ s += "Good Afternoon !!"; }
+                        else { s += "Good night !!";}
+                        return s;
+                    }
+                };
+            };
+        });
+
+        app.controller("myControl", function($scope, myPro){
+            $scope.var1 = "Hi !!!";
+            $scope.GreetingObj = function(){
+                $scope.var1 = myPro.Greeting();
+            }
+        })
+    </script>
+</body>
+</html>

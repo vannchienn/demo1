@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>get</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="studentCtrl">
+        <ul>
+            <li ng-repeat="x in myDate">
+                {{ x.Name + ', ' + x.Phone + ', ' + x.City }}
+            </li>
+        </ul>
+
+        <!-- <pre>{{myDate|json}}</pre> -->
+    </div>
+
+    <script>
+        var app = angular.module("myApp",[]);
+        app.controller("studentCtrl", function($scope, $http){
+            $http.get("students.txt").then(function(response){
+                $scope.myData = response.data.records;
+            });
+        });
+    </script>
+</body>
+</html>

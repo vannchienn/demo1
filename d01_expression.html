@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular js</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+</head>
+<body>
+    <div ng-app="myApp" ng-controller="myControl">
+        <input type="text" ng-model="fname" placeholder="nhap ten"> <br>
+        <input type="text" ng-model="lname" placeholder="nhap ho"> <br>
+        <h3>Ho va ten : {{lname + ' ' + fname}}</h3>
+    </div>
+
+    <script>
+        var app = angular.module("myApp", []);
+        app.controller("myControl", function($scope){
+            $scope.lname = "cao";
+            $scope.fname = "van chien";
+        });
+    </script>
+</body>
+</html>
